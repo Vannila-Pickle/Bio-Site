@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [showSecret, setShowSecret] = useState(false);
+  const [showSecret, setShowSecret, showWOTD, serShowWOTD] = useState(false);
 
   const revealSecret = () => {
     setShowSecret(false);
+  };
+  const revealWOTD = () => {
+    setShowWOTD(false);
   };
 
   // STUDENT INFO - Replace these with your own information!
@@ -93,6 +96,16 @@ function App() {
         <h3>💬 Ask Me About</h3>
         <p>{studentInfo.talkAbout}</p>
       </div>
+  
+      <div className="w-o-t-d" onClick={revealSecret}>
+        <h2>Click me for the word of the day!</h2>
+      </div>
+      {showWOTD && (
+        <div className="section show">
+          <h3>Word of the Day</h3>
+          <p>{studentInfo.secretfact}</p>
+        </div>
+      )}
     </div>
   );
 }
